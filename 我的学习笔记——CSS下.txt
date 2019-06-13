@@ -54,6 +54,11 @@ background-image: linear-gradient(-45deg,transparent 100px,white 150px,white 180
 线性渐变：可以指定纯色和渐变色的范围
 径向渐变：可以指定扩散的范围（注意点：如果需要同时指定扩散的位置和扩散的范围，那么范围必须写在at前面）
   eg:  background: radial-gradient(200px at top right ,green , red);   注意：扩散范围写在扩散位置前面，并且扩散范围后面不加  ,   符号。
+  主轴方向：
+            flex-direction: row;  从右至左
+            flex-direction: row-reverse;   与从右至左反向
+            flex-direction: column;   从上至下
+            flex-direction: column-reverse;  与从上至下反向
   
   justify-content: ;     属性控制主轴对齐方式  取值有：flex-start  默认取值,从左对齐；  flex-end   从右对齐    ; center 居中对齐 ;    space-between  两端对齐  ;    space-around  环绕对齐 ;
 
