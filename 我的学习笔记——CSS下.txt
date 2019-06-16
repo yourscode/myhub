@@ -129,8 +129,9 @@ flex-shrink扩充公式
   flex: 扩充 缩小 宽度 ；    eg： flex： 0 1 100px；
 
 
-
-
+**以后不用去w3cschool里面找资料了直接去MDN里面找
+**解决光标变成方方块状，按一下insert键就行
+##flex: 1;  =   flex-grow: 1;  +   flex-shrink: 1;   +   flex-basis: 0;
 
 
   
