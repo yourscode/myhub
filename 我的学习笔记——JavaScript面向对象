@@ -47,6 +47,12 @@ prototype应用场景
 
     Object函数是构造函数,是Function函数的实例化对象
 
+Function函数是所有函数的祖先函数
+所有构造函数都有一个prototype属性
+所有原型对象都有一个constructor属性
+所有函数都是对象 
+所有对象都有一个__proto__属性
+
 注意点: 为了不破坏原有的关系,在给prototype赋值的时候,需要在自定义的对象中手动添加constructor属性,手动的指定需要指向谁
         eg: constructor : Person;
 注意点: 在给一个对象不存在的属性设置值的时候,不会去原型对象中查找,如果当前对象美原油就会给当前对象新增一个不存在的属性值
