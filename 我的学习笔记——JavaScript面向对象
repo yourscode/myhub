@@ -40,6 +40,13 @@ prototype应用场景
 3,通过构造函数创建出来的对象我们称之为"实例对象",每个"实例对象"中都有一个默认的属性,叫做 __proto__ ,
    __proto__指向创建它的那个构造函数的"原型对象".
 
+1,JavaScript中函数是引用类型(对象类型),既然是对象,所以是通过构造函数创建出来的,所有函数都是通过Function
+构造函数创建出来的对象,
+2,JavaScript中只要是"函数"就有prototype属性,"Function函数"的prototype属性指向"Function原型对象"
+3,JavaScript中只要"原型对象"就有constructor指向它对应的构造函数
+
+    Object函数是构造函数,是Function函数的实例化对象
+
 注意点: 为了不破坏原有的关系,在给prototype赋值的时候,需要在自定义的对象中手动添加constructor属性,手动的指定需要指向谁
         eg: constructor : Person;
 注意点: 在给一个对象不存在的属性设置值的时候,不会去原型对象中查找,如果当前对象美原油就会给当前对象新增一个不存在的属性值
