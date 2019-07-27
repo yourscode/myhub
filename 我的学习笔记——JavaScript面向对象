@@ -133,10 +133,108 @@ js中继承的终极方法:
     什么是instanceof关键字/
     instanceof用于判断"对象"是否是指定构造函数的"实例"
   注意点: 指定构造函数的实例对象出现在那个实例对象的原型链中,  console.log(stu.instanceof Person);   就会返回true(Student构造函数继承Person构造函数)
+
+什么是isPrototypeOf 属性? 
+  isPrototypeOf属性用于判断一个对象是否是另一个对象的原型
+  eg:  console.log(Student.prototype.isPrototypeOf(stu));  // true   Person的原型对象在实例对象stu的原型链中就会返回true
+  
+判断对象属性,
+   in的特点: 只要类中或者原型对象中有那个属性,就会返回true    eg:  console.log("name" in p);    //true
+   如果只想判断一个对象自身是否拥有某一个属性不判断原型对象中是否有这个属性:    console.log(p.hasOwnProperty("height"));  //false  height是prototype里面的
        
+对象的增删改查:
+       class Person{}
+    let p = new Person();
+    //增加
+    // p.name = "lnj";
+    p["name"] = "lnjj";
+    /*p.say = function(){
+        console.log("hello world1");
+    };*/
+    p["say"] = function(){
+        console.log("hello world");
+    }
+    // console.log(p);
+    //删除
+    // delete p.name;
+   // delete p["name"];
+    // delete p.say;
+    // delete p["say"];
+    // console.log(p);
+
+    //修改
+    // p.name = "bbe";
+    p["name"] = "bbe";
+   /* p.say = function(){
+        console.log("hello dl");
+    };*/
+   p["say"] = function(){
+       console.log("hello dl");
+   };
+    p.say();
+    //查询
+
+    console.log(p.name);
+    console.log(p["name"]);
+    p.say();
+    
+    
+对象的遍历: 
+     1.在JavaScript中对象和数组一样是可以遍历的
+     2.什么是对象的遍历?
+         对象的遍历就是依次取出对象中所有的属性和方法
+     3.如何遍历一个对象
+        在JS中可以通过高级for循环来遍历对象
+        以下代码含义: 将指定对象中所有的对象和方法名称取出来赋值给key这个变量
+          eg:  for(let  key in obj){
+          
+          }
+          
+    for(let key in p){
+        // console.log(key);
+        //以下代码的含义取出p对象中名称叫做当前遍历到的名称的属性或者方法的取值
+        // console.log(p[key]);
+        //注意点: 以下代码的含义取出p对象中名称叫做key的属性的取值
+        console.log(p.key);
+    }
+    注意: 因为key的类型是String类型的所以  console.log(p[key]);  就行不需要添加   ""
+
+对象解构赋值:
+    let  {age,name}  ={name : "lnj",age:34};
+    console.log(name,age);   //lnj  34
+注意点: 在对象解构赋值中,左边的变量名称必须和变量的属性名称一致,才能解构出来数据
 
 
+深拷贝和浅拷贝
+    什么是深拷贝?
+       修改新变量的值不会修改原有变量的值,默认情况下,基本数据类型都是深拷贝
+    什么是浅拷贝
+        修改新变量的值会修改原有变量的值,默认情况下,引用类型都是浅拷贝
 
+对象深拷贝:
+    assign方法可以将第二个参数的对象属性和方法拷贝到第一个参数的对象中(assign是Object里面的方法)
+         eg:  Object.assign(p2,p1);
+
+实现真正的深拷贝:
+        function depCopy(target,source) {
+       //1.通过遍历拿到source中所有的属性
+       for(let key in source){
+           // console.log(p1[key]);
+           //2.取出当前遍历到的属性对应的取值
+            let sourceValue = source[key];
+            // console.log(sourceValue);
+           //判断当前的取值是否是引用数据类型
+           if(sourceValue instanceof Object){
+               // console.log(sourceValue.constructor);
+               // console.log(new sourceValue.constructor);
+               let subTarget = new sourceValue.constructor;
+               target[key] = subTarget;
+               depCopy(subTarget,sourceValue);
+           }else{
+               target[key] = sourceValue;
+           }
+       }
+   }
 
 
 
