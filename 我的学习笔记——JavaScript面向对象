@@ -103,7 +103,37 @@ js中继承的终极方法:
  在ES6之前如何定义一个类?  
       通过构造函数来定义一个函数
  从ES6开始系统提供了一个叫做class的关键字,这个关键字就是专门用于来定义类的.
-
+ 
+ 
+ 新的篇章:   
+     以下定义的"实例属性"的方式并不是ES6正式标准版中的写法,(eg:  name = "lnj";  age = 34;)大部分浏览器都不支持
+     在ES6标准中添加实例属性都需要在constructor中添加
+     eg: constructor(){
+         this.name = "hzh";
+         this.age = 22;
+         this.say() = {
+         console.log(this.name,this.age);
+     }
+     
+     注意: 在constructor里面添加的属性和方法是实例属性和实例方法,在constructor外面添加的方法会自动
+     添加到prototype里面去,变成原型对象里面的方法,但是属性要添加到prototype里面去,写在外面不行,必须得
+     Person.prototype.type = "人";   这样才行,当然这种方法也可以添加方法
+        在ES6标准中static只能定义函数,不能定义属性,不然在大多数属性中不能使用
+        
+      注意: ES6中不能自定义prototype!     例如: Person.prototype = {};    这样是错误的,因为这样的话就不能把写在
+      constructor外面的方法添加到prototype里面了       (在116-117)
+    
+  获取数据类型: 
+    let arr = new Array();
+    console.log(arr.constructor.name);     //Array
+    arr 里面没有constructor属性所以他会向他的原型对象里面去寻找constructor里面去寻找,找到了,然后constructor里面会有一个叫做name的属性
+    name可以获取真实的类型,可以获取他的构造函数的名称
+ 
+ instanceof关键字
+    什么是instanceof关键字/
+    instanceof用于判断"对象"是否是指定构造函数的"实例"
+  注意点: 指定构造函数的实例对象出现在那个实例对象的原型链中,  console.log(stu.instanceof Person);   就会返回true(Student构造函数继承Person构造函数)
+       
 
 
 
