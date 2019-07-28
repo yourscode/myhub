@@ -1,0 +1,36 @@
+JavaScript学习笔记开篇:
+  什么是宿主?
+     宿主就是JavaScript运行环境,js可以在浏览器中运行,也可以在服务器上面运行,(node.js)
+  本地对象:
+      与宿主无关,无论在浏览器还是服务器中都有的对象,就是ECMAScript标准中定义的类(构造函数)
+      在使用过程中需要我们手动new创建
+      例如:  Boolean   Number  String   Array   Function   Object   Date   RegExp
+    内置对象: 
+    与宿主无关: 无论在浏览器还是服务器中都有的对象,ECMAScript已经帮我们创建好的对象
+    在使用过程中需要我们手动创建
+    例如:  Global   Math  JSON
+    宿主对象:  
+        对于嵌入到网页中的JS来说,其宿主对象就是浏览器,所以宿主对象就是浏览器提供的对象
+        包含: Window和Document等
+        所有的DOM和BOM对象都属于宿主对象
+        
+        
+什么是window?
+   window:  是全局对象,代表浏览器中一个打开的窗口,每一个窗口都是一个打开的对象
+什么是document?
+   document是window的一个属性,这个属性是一个对象
+   document: 代表当前窗口中整个网页
+   通过document对象我们就可以操作整个网页上的所有内容
+什么是DOM  
+   DOM定义了访问和操作HTML文档(网页)的标准方法
+   DOM全称:  Document Object Model  即文档模型对象
+   所以我们学习DOM就是学习如何通过document对象操作网页上面的内容
+   
+在JavaScript中HTML标签也称之为DOM元素
+使用document的时候前面不用加window
+    1.通过ID获取指定的元素
+        由于id不可以重复,所以找到了就会把找到的标签包装成一个对象,返回给我们,找不到就返回NUll
+        注意点:  DOM操作返回的是一个对象,这个对象是宿主类型对象(浏览器提供的对象)
+    2.通过class名称获取
+        会返回给我们一个伪数组
+      
