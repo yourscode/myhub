@@ -29,8 +29,123 @@ JavaScript学习笔记开篇:
 在JavaScript中HTML标签也称之为DOM元素
 使用document的时候前面不用加window
     1.通过ID获取指定的元素
+    let oDiv = document.getElementById("box");
         由于id不可以重复,所以找到了就会把找到的标签包装成一个对象,返回给我们,找不到就返回NUll
         注意点:  DOM操作返回的是一个对象,这个对象是宿主类型对象(浏览器提供的对象)
     2.通过class名称获取
+    let oDivs = document.getElementsByClassName("father");
         会返回给我们一个伪数组
+    3.name获取
+    let oDivs = document.getElementsByName("test");
+        会返回一个伪数组
+    4.通过标签名称获取
+    let oDivs = document.getElementsByTagName("div");
+        会返回一个伪数组
+    5.通过选择器获取
+    let oDivs = document.querySelector(".father");
+    querySelector只会返回根据指定选择器找到的第一个元素
+    6.通过选择器获取所有的
+    let oDivs = document.querySelectorAll("div");
+    querySelectorAll
+    返回给我们一个伪数组
+ 
+ 什么是节点: 包括文本,属性,还有子元素
+
+
+let oDiv = document.querySelector("div");
+    // children属性获取到的指定元素中所有的子元素
+    console.log(oDiv.children);
+    //childNodes属性获取到的是指定元素中的节点
+    console.log(oDiv.childNodes);
+    for(let node of oDiv.childNodes){
+        /!*console.log(node);
+        console.log(node.nodeType);*!/
+        // if(node.nodeType == 1){
+        if(node.nodeType === Node.ELEMENT_NODE){
+            console.log(node);
+        }
+    }
+ 
+
+获取DOM元素:
+
+ //1.获取指定节点中的第一个子节点
+      let oDiv = document.querySelector("div");
+      // console.log(oDiv.children);
+      // console.log(oDiv.firstChild);
+      //1.获取指定节点中的第一个子元素
+      /!*console.log(oDiv.firstElementChild);
+
+      console.log(oDiv.lastChild);
+      console.log(oDiv.lastElementChild);*!/
+
+      //通过子元素获取父元素/父节点
+      let item = document.querySelector(".item");
+     /!* console.log(item.parentElement);
+      console.log(item.parentNode);*!/
+
+      //获取相邻上一个节点
+      /!*console.log(item.previousSibling);
+      //获取相邻上一个元素
+      console.log(item.previousElementSibling);*!/
+
+      //获取相邻下一个节点
+      console.log(item.nextSibling);
+      //获取相邻下一个元素
+      console.log(item.nextElementSibling);
       
+      
+
+
+***快捷键: document.querse   document.querySelector()
+
+
+增删改查:
+     //1.创建节点(创建返回的是一个对象)
+    // let oSpan = document.createElement("span");
+    // console.log(oSpan);
+    // console.log(typeof oSpan);
+
+    //2.添加节点
+    //注意点:appendChild方法会将指定的元素添加到最后面
+    // let oDiv = document.querySelector("div");
+    // oDiv.append(oSpan);
+    // let oA = document.createElement("a");
+    // oDiv.append(oA);
+    // let oDiv = document.querySelector("div");
+
+    //快捷键: document.querse   document.querySelector()
+    //插入节点:
+    // let oSpan = document.createElement("span");
+    // let oDiv = document.querySelector("div");
+    // let oH1 = document.querySelector("h1");
+    // let oP = document.querySelector("p");
+
+    // oDiv.insertBefore(oSpan,oH1);
+    // oDiv.insertBefore(oSpan,oP);
+
+    //4.删除节点:
+    //注意点: 在js中如果想要删除某一个元素,只能通过对应的父元素来删除,元素是不能自杀的
+    // console.log(oSpan.parentNode);
+    // oSpan.parentNode.removeChild(oSpan);
+    // oDiv.parentNode.removeChild(oDiv);
+
+    //5.克隆节点:
+    //注意点: cloneNode方法默认不会克隆子元素,如果想要克隆一个节点需要传递一个参数true
+    let oDiv = document.querySelector("div");
+    let newDiv = oDiv.cloneNode(true);
+    console.log(newDiv);
+
+
+
+
+
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
