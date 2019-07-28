@@ -137,6 +137,40 @@ let oDiv = document.querySelector("div");
     console.log(newDiv);
 
 
+元素属性修改
+    无论是通过document创建还是查询出来的标签,系统都会将元素包装成一个对象返回给我们
+    系统在包装这个对象的时候会自动将元素的属性都包装到这个对象中
+    所以只要拿到这个对象就可以拿到标签属性,操作标签属性
+ 
+ //1.如何获取元素的属性
+    // let oImg = document.querySelector("img");
+    // console.log(oImg.alt);
+    // console.log(oImg.getAttribute("alt"));
+    //注意点: 通过   对象.属性名称的方式无法获取到自定义属性的取值
+    //通过  getAttribute   方法可以获取到自定义属性的取值
+    // console.log(oImg.nb);
+    // console.log(oImg.getAttribute("nb"));
+
+    //2.如何修改元素属性
+    //     let oImg = document.querySelector("img");
+        // oImg.alt = "zhaobudaole";
+        // oImg.setAttribute("alt","woshi Attribute");
+        // console.log(oImg.getAttribute("alt"));
+        //注意点: 和获取元素属性一样
+        // oImg.nb = "hfkdahdkfjahkjd";
+        // oImg.setAttribute("nb","hzhjiayou");
+    //3.如何新增元素属性
+    //     let oImg = document.querySelector("img");
+        //通过    对象.属性   不能新增新的元素属性
+        // oImg.it66 = "itzb";
+        //注意点:  setAttribute方法如果属性不存在就是新增,如果存在就是修改
+        // oImg.setAttribute("it98898","415943594");
+
+        //4.如何删除元素属性
+        let oImg = document.querySelector("img");
+        // oImg.alt = "";
+        //注意点:  和获取元素属性一样
+        oImg.removeAttribute("alt");
 
 
 
