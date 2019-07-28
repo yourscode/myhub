@@ -237,6 +237,57 @@ js中继承的终极方法:
    }
 
 
+数组高级API:
+    注意点: 不推荐使用for in循环来遍历数组,因为for in循环是专门用于遍历对象的
+可以使用ES6中推出的for of 循环来遍历数组
+for(let value of arr){
+   console.log(value);
+   }
+   
+还可以使用forEach();方法来遍历数组
+forEach方法会自动调用传入的函数
+每次调用都会将当前遍历到的元素和当前遍历到的索引和当前被遍历的数组传递给这个函数
+   arr.forEach(function (currentValue, currentIndex, currentArray) {
+       console.log(currentValue, currentIndex, currentArray);
+   });
+数组的查找方法: 
+   数组的findIndex方法
+         findIndex方法: 定制版的indexOf,找到返回索引,找不到返回 -1
+         如果找到了就返回那个数的索引,找不到就返回  -1
+         数组的find方法: findIndex方法返回索引,find方法返回找到的元素
+         如果找到了就返回找到的那个数,如果找不到就返回undefined
+   数组的filter方法: 将满足条件的元素添加到一个新的数组中
+         let arr = [1,2,3,4,5,6];
+          let newArray = arr.filter(function (currentValue, currentIndex, currentArray) {
+        // console.log(currentValue, currentIndex, currentArray);
+        if(currentValue % 2 === 0){
+            return true;
+        }
+    });
+    console.log(newArray);   //[2,4,6];
+    
+ 数组的map方法:  将满足条件的元素映射到一个新的数组中,那个新的数组和原来的数组大小一模一样,没有映射到的设置为undefined
+    let arr = [1,2,3,4,5,6];
+  let newArray = arr.map(function (currentValue, currentIndex, currentArray) {
+      // console.log(currentValue, currentIndex, currentArray);
+      if(currentValue % 2 === 0){
+          return currentValue;
+      }
+  });
+  console.log(newArray);  //[undefined, 2, undefined, 4, undefined, 6]
+  
+   注意点: 通过delete属性来删除数组中的元素,数组的length属性不会发生变化
+   
+   ***slice  截取,包头不包尾,会修改原来的数组
+     let arr = [1,2,3,4,5,6];
+/*  arr.splice(0,3);
+  console.log(arr);   //[4,5,6]*/
+  
+   ***splice   删除,并返回删除了的数据组成一个数组返回给我们,不会修改原来的数组
+   let newArr = arr.slice(0,3);
+  console.log(newArr);    //[1, 2, 3]
+   ***split   替换???
+
 
 
 
