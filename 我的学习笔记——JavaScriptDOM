@@ -174,6 +174,29 @@ let oDiv = document.querySelector("div");
 
 
 
+操作元素中的内容
+    //1.获取元素内容
+    //注意点: 1. innerHTML获取的内容包含标签,innerText/textContent获取的内容不包含标签
+    // 2.  innerHTML/textContent获取的内容不会去除两端的空格,innerText获取的内容会去除两端的空格
+    // let oDiv = document.querySelector("div");
+    // console.log(oDiv.innerHTML);
+    // console.log(oDiv.innerText);
+    // console.log(oDiv.textContent);
+
+    //2.设置元素内容
+    //特点: 无论通过inerHTML/innerText/textContent设置内容,新的内容都会覆盖原有的内容
+    //区别: 如果通过innerHTML设置数据,数据中包含标签,会转换成标签后再添加
+        //  如果通过innerText/textContent设置数据,数据中包含标签不会转换成标签,会当做成一个字符串直接设置
+    let oDiv = document.querySelector("div");
+    // oDiv.innerHTML = "123";
+    // oDiv.innerText ="456";
+    // oDiv.textContent = "789";
+
+    // oDiv.innerHTML = "<span>我是span</span>";
+    // oDiv.innerText = "<span>我是span</span>";
+    // oDiv.textContent = "<span>我是span</span>"
+
+
     
  
  
