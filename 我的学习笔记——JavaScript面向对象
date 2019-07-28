@@ -132,7 +132,7 @@ js中继承的终极方法:
  instanceof关键字
     什么是instanceof关键字/
     instanceof用于判断"对象"是否是指定构造函数的"实例"
-  注意点: 指定构造函数的实例对象出现在那个实例对象的原型链中,  console.log(stu instanceof Person);   就会返回true(Student构造函数继承Person构造函数)
+  注意点: 如果指定构造函数的实例对象出现在那个实例对象的原型链中,  console.log(stu instanceof Person);   就会返回true(Student构造函数继承Person构造函数)
 
 什么是isPrototypeOf 属性? 
   isPrototypeOf属性用于判断一个对象是否是另一个对象的原型
