@@ -195,7 +195,44 @@ let oDiv = document.querySelector("div");
     // oDiv.innerHTML = "<span>我是span</span>";
     // oDiv.innerText = "<span>我是span</span>";
     // oDiv.textContent = "<span>我是span</span>"
+  
+ 
+操作元素样式: 
+    //1.设置元素样式
+    // let oDiv = document.querySelector("div");
+    // oDiv.className = "box";
+    //注意点: 过去CSS中通过   -   连接的样式,在js中都是驼峰命名
+    //注意点: 通过JS添加的样式都是行内样式,会覆盖掉同名的CSS样式
+    // oDiv.style.width = "300px";
+    // oDiv.style.height = "300px";
+    // oDiv.style.backgroundColor  = "blue";
 
+    //2.获取元素样式
+
+    let oDiv = document.querySelector("div");
+    // oDiv.style.width = "300px";
+    //注意点: 通过style属性只能获取到行内样式的属性值,不能获取到CSS设置的属性值
+    // console.log(oDiv.style.width);
+    //注意点: 如果想要获取CSS设置值的属性值必须通过getComputedStyle方法来获取
+    //getComputedStyle方法接收一个参数,这个参数就是要获取的元素对象
+    //getComputedStyle方法返回一个对象,这个对象中就保存了CSS设置的样式和属性值
+    let myStyle = window.getComputedStyle(oDiv);
+    console.log(myStyle.width);
+    
+    
+
+DOM事件: 
+   什么是DOM事件: 用户和浏览器之间的交互行为我们就称之为事件,比如点击,移入,/移出
+   如何给元素绑定事件: 
+      在JavaScript中所有的HTML标签都可以添加事件
+      元素.事件名称  =  function(){  };
+      当对应事件被触发时候就会自动执行function中的代码
+      
+     oA.onclick = function () {
+        alert("不要进入百度首页");
+        //以下代码的含义,用我们添加的事件覆盖掉系统同名的事件
+        return false;
+    }
 
     
  
