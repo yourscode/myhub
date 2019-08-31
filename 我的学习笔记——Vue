@@ -1,0 +1,4 @@
+语法糖: 简写   v-on:click  =  @click
+vscode  log = console.log();
+hook : 钩子
+那个两个  {{}}  的叫做Mustache语法
