@@ -28,3 +28,8 @@ splice作用: 删除元素/替换元素/插入元素
 注意点: 通过索引值修改数组中的元素  :   this.letters[0] = "bbbbb"; 不是响应式的
 可以通过   splice(0,1"bbbbb") 达到相同的效果但是是响应式的  ,还有一种方式: set(要修改的对象,索引值,修改后的值)
 Vue.set(this.letters,0,"bbbbb")
+
+组件的使用分成三个步骤: 
+1,创建组件构造器 : Vue.extend()
+2,注册组件: Vue.component()
+3,使用组件:
